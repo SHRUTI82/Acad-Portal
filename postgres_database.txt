@@ -1,0 +1,316 @@
+CREATE TABLE Users(
+	user_id varchar,
+	password varchar,
+	role integer,
+	PRIMARY KEY(user_id)
+	
+
+);	
+
+
+
+
+
+CREATE TABLE Course_offering(
+		fac_id varchar,
+		Code varchar,
+		Year integer,
+		sem  integer,
+		CGPA float,
+		Prog varchar,
+		PRIMARY KEY(code, year, sem,prog),
+		Foreign key(code) references course_catalog(code)
+);
+
+
+
+
+CREATE TABLE Students(
+	Student_id varchar,
+	student_name varchar,
+	department varchar,
+	year integer,
+	PRIMARY KEY ( student_id),
+	Foreign key(student_id) references users(user_id)
+);
+
+
+
+CREATE TABLE faculty(
+	fac_id varchar,
+	fac_name varchar,
+	dep varchar,
+	PRIMARY KEY(fac_id),
+	Foreign key(fac_id) references users(user_id)
+
+);
+
+
+
+
+CREATE TABLE Course_catalog(
+		Title varchar,
+		Code varchar,
+		dep varchar,
+		credit float,
+		LTP varchar,
+		Prereq varchar default '',
+		PRIMARY KEY( Code)
+		
+		
+);
+
+
+
+Insert into faculty(fac_id,fac_name,dep) values ('instructor1','XYZ','CS');
+Insert into faculty(fac_id,fac_name,dep) values ('instructor2','XYZ','HS');
+
+
+
+Insert into users(user_id,password,role) values('admin1','min1',0);
+Insert into users(user_id,password,role) values('instructor1','tor1',1);
+Insert into users(user_id,password,role) values('instructor2','tor2',1);
+Insert into users(user_id,password,role) values('2019ceb1111','ceb1111',2);
+Insert into users(user_id,password,role) values('2019meb1111','meb1111',2);
+Insert into users(user_id,password,role) values('2020csb1111','csb1111',2);
+Insert into users(user_id,password,role) values('2022mmb1111','mmb1111',2);
+Insert into users(user_id,password,role) values('2022csb1111','csb1111',2);
+Insert into users(user_id,password,role) values('2022ceb1111','ceb1111',2);
+Insert into users(user_id,password,role) values('2022meb1111','meb1111',2);
+////////////////////////////////////////////////////////////////////////////////////
+csvtodb
+Insert into users(user_id,password,role) values('2022eeb1111','eeb1111',2);
+Insert into users(user_id,password,role) values('2022eeb1112','eeb1112',2);
+Insert into users(user_id,password,role) values('2022eeb1113','eeb1113',2);
+
+Insert into users(user_id,password,role) values('2022eeb1114','eeb1114',2);
+Insert into users(user_id,password,role) values('2022eeb1115','eeb1115',2);
+Insert into users(user_id,password,role) values('2022eeb1116','eeb1116',2);
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+Insert into students(student_id,student_name,department,year) values('2023eeb1111','ABC','CE',2023);
+Insert into students(student_id,student_name,department,year) values('2023eeb1112','ABC','CS',2023);
+Insert into students(student_id,student_name,department,year) values('2023eeb1113','ABC','ME',2023);
+Insert into students(student_id,student_name,department,year) values('2023eeb1114','ABC','MM',2023);
+
+Insert into users(user_id,password,role) values('2023eeb1111','eeb1111',2);
+Insert into users(user_id,password,role) values('2023eeb1112','eeb1112',2);
+Insert into users(user_id,password,role) values('2023eeb1113','eeb1113',2);
+Insert into users(user_id,password,role) values('2023eeb1114','eeb1114',2);
+
+
+
+Insert into students(student_id,student_name,department,year) values('2019ceb1111','ABC','CE',2019);
+Insert into students(student_id,student_name,department,year) values('2020csb1111','ABC','CS',2020);
+Insert into students(student_id,student_name,department,year) values('2019meb1111','ABC','ME',2019);
+Insert into students(student_id,student_name,department,year) values('2022mmb1111','ABC','MM',2022);
+Insert into students(student_id,student_name,department,year) values('2022csb1111','ABC','CS',2022);
+Insert into students(student_id,student_name,department,year) values('2022meb1111','ABC','ME',2022);
+
+
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs101','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs102','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs103','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs101','HS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs102','HS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs103','HS',3,'2-3-4',' ');
+
+
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs201','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs202','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs203','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs204','CS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs201','HS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs202','HS',3,'2-3-4',' ');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs203','HS',3,'2-3-4','cs101 ');
+
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs301','HS',3,'2-3-4','hs201,hs202,hs203');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs302','HS',3,'2-3-4','');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','hs303','HS',3,'2-3-4','hs101');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs301','CS',3,'2-3-4','cs201');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs302','CS',3,'2-3-4','cs202');
+Insert into course_catalog(title,code,dep,credit,LTP,prereq) values('aaa','cs303','CS',3,'2-3-4','cs202');
+
+
+INSERT INTO  Students values ('2020ceb1100','ABC','Civil',2020);
+INSERT INTO  Students values ('2020csb1100','ACD','Computer Science',2020);
+INSERT INTO  Students values ('2020mnc1100','XYZ','Mathematics and Computing',2020);
+INSERT INTO  Students values ('2020meb1100','AED','Mechanical',2020);
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+create table db_2022csb1111_2022_1( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2022csb1111_2022_2( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+
+INSERT INTO  Db_2022csb1111_2022_1 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2022csb1111_2022_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2022csb1111_2022_1 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2022csb1111_2022_1 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2022csb1111_2022_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2022csb1111_2022_1 values('hs103','XYZ',2,'CS','PC','NP');
+
+
+INSERT INTO  Db_2022csb1111_2022_2 values('cs201','XYZ',5,'CS','PC','B');
+INSERT INTO  Db_2022csb1111_2022_2 values('cs202','XYZ',4,'CS','PC','A(-)');
+INSERT INTO  Db_2022csb1111_2022_2 values('cs203','XYZ',4,'CS','PE','W');
+INSERT INTO  Db_2022csb1111_2022_2 values('cs204','XYZ',2,'CS','PE','B(-)');
+INSERT INTO  Db_2022csb1111_2022_2 values('hs201','XYZ',4,'CS','PC','C');
+INSERT INTO  Db_2022csb1111_2022_2 values('hs202','XYZ',4,'CS','PE','A');
+INSERT INTO  Db_2022csb1111_2022_2 values('hs203','XYZ',1,'CS','PC','NP');
+
+
+
+
+
+
+
+
+INSERT INTO  Db_2022mmb1111_2022_1 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2022mmb1111_2022_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2022mmb1111_2022_1 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2022mmb1111_2022_1 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2022mmb1111_2022_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2022mmb1111_2022_1 values('hs103','XYZ',2,'CS','PC','NP');
+
+
+INSERT INTO  Db_2022mmb1111_2022_2 values('cs201','XYZ',5,'CS','PC','B');
+INSERT INTO  Db_2022mmb1111_2022_2 values('cs202','XYZ',4,'CS','PC','A(-)');
+INSERT INTO  Db_2022mmb1111_2022_2 values('cs203','XYZ',4,'CS','PE','W');
+INSERT INTO  Db_2022mmb1111_2022_2 values('cs204','XYZ',2,'CS','PE','B(-)');
+INSERT INTO  Db_2022mmb1111_2022_2 values('hs201','XYZ',4,'CS','PC','C');
+INSERT INTO  Db_2022mmb1111_2022_2 values('hs202','XYZ',4,'CS','PE','A');
+INSERT INTO  Db_2022mmb1111_2022_2 values('hs203','XYZ',1,'CS','PC','NP');
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+create table db_2019mmb1111_2019_1( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2019_2( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2020_1( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2020_2( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2021_1( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2021_2( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2022_1( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+create table db_2019mmb1111_2022_2( code varchar, title varchar, credit float ,department varchar  , programme varchar, grade varchar default ' ' , primary key(code));
+
+
+
+INSERT INTO  Db_2019mmb1111_2019_1 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2019mmb1111_2019_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2019_1 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2019mmb1111_2019_1 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2019mmb1111_2019_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2019_1 values('hs103','XYZ',2,'CS','PC','NP');
+
+
+INSERT INTO  Db_2019mmb1111_2020_2 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2019mmb1111_2020_2 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2020_2 values('cs103','XYZ',4,'CS','SR','A');
+INSERT INTO  Db_2019mmb1111_2020_2 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2019mmb1111_2020_2 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2020_2 values('hs103','XYZ',2,'CS','PC','NP');
+
+INSERT INTO  Db_2019mmb1111_2019_2 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2019mmb1111_2019_2 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2019_2 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2019mmb1111_2019_2 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2019mmb1111_2019_2 values('hs102','XYZ',4,'CS','HS','E');
+INSERT INTO  Db_2019mmb1111_2022_2 values('hs103','XYZ',2,'CS','PC','NP');
+
+INSERT INTO  Db_2019mmb1111_2020_1 values('cs101','XYZ',5,'CS','OE','C');
+INSERT INTO  Db_2019mmb1111_2020_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2020_1 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2019mmb1111_2020_1 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2019mmb1111_2020_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2020_1 values('hs103','XYZ',2,'CS','PC','NP');
+
+INSERT INTO  Db_2019mmb1111_2021_1 values('cs101','XYZ',5,'CS','SE','C');
+INSERT INTO  Db_2019mmb1111_2021_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2021_1 values('cs103','XYZ',4,'CS','NS','A');
+INSERT INTO  Db_2019mmb1111_2021_1 values('hs101','XYZ',2,'CS','OE','B');
+INSERT INTO  Db_2019mmb1111_2021_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2021_1 values('hs103','XYZ',2,'CS','NSS','NP');
+
+INSERT INTO  Db_2019mmb1111_2021_2 values('cs101','XYZ',5,'CS','PC','C');
+INSERT INTO  Db_2019mmb1111_2021_2 values('cs102','XYZ',4,'CS','OE','C(-)');
+INSERT INTO  Db_2019mmb1111_2021_2 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2019mmb1111_2021_2 values('hs101','XYZ',2,'CS','SR','B');
+INSERT INTO  Db_2019mmb1111_2021_2 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2021_2 values('hs103','XYZ',2,'CS','PC','NP');
+
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs101','XYZ',5,'CS','SR','C');
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs103','XYZ',4,'CS','CP','A');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs101','XYZ',2,'CS','PE','B');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs103','XYZ',2,'CS','DEP','NP');
+
+
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs101','XYZ',5,'CS','SE','C');
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs102','XYZ',4,'CS','PE','C(-)');
+INSERT INTO  Db_2019mmb1111_2022_1 values('cs103','XYZ',4,'CS','PC','A');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs101','XYZ',2,'CS','CP','B');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2022_1 values('hs103','XYZ',2,'CS','PC','NP');
+
+
+
+INSERT INTO  Db_2019mmb1111_2022_2 values('cs101','XYZ',5,'CS','PE','C');
+INSERT INTO  Db_2019mmb1111_2022_2 values('cs102','XYZ',4,'CS','CP','C(-)');
+INSERT INTO  Db_2019mmb1111_2022_2 values('cs103','XYZ',4,'CS','HS','A');
+INSERT INTO  Db_2019mmb1111_2022_2 values('hs101','XYZ',2,'CS','HE','B');
+INSERT INTO  Db_2019mmb1111_2022_2 values('hs102','XYZ',4,'CS','PE','E');
+INSERT INTO  Db_2019mmb1111_2022_2 values('hs103','XYZ',2,'CS','PC','NP');
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+INSERT INTO  Db_2022CSB1117_2021_1 values('CS201','XYZ',5,'CS','CORE');
+INSERT INTO  Db_2020CSB1117_2021_1 values('CS202','XYZ',5,'CS','CORE');
+INSERT INTO  Db_2020CSB1117_2021_1 values('CS203','XYZ',4,'CS','CORE');
+INSERT INTO  Db_2020CSB1117_2021_1 values('CS204','XYZ',4,'CS','CORE');
+INSERT INTO  Db_2020CSB1117_2021_1 values('CS205','XYZ',4,'CS','CORE','E');
+INSERT INTO  Db_2020CSB1117_2021_1 values('CS306','XYZ',2,'CS','CORE','NP');
+
+create table course_offering( fac_name varchar, code varchar,title varchar, credit float, dep varchar, year varchar, sem varchar, cgpa float, programme varchar);
+
+
+
+
+
+insert into course_catalog(title,code,dep,credit,ltp,prereq) values ('Computer Architecture','CS204','CS',4,'3-0-3', '');
+ insert into course_offering(fac_id,code,year,sem,cgpa,prog) values ('XYZ','CS204',2020,1,7.0, 'Elec');
+ insert into students(student_id,student_name, department, year) values ('2020mmb1111', 'ABC', 'MM',2020);
+
+insert into course_catalog(title,code,dep,credit,ltp,prereq) values ('Metal','MM204','MM',4,'3-0-3', '');
+ insert into course_offering(fac_id,code,year,sem,cgpa,prog) values ('XYZ','MM204',2020,1,7.0, 'Core');
+insert into students(student_id,student_name, department, year) values ('2020csb1111', 'ABC', 'CS',2020);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
