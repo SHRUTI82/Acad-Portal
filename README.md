@@ -22,6 +22,6 @@ For Students:
 2. View Grades
 3. Compute CGPA
 
-#Language used-
+# Language used-
 1. PostgreSQL
 2. Java
