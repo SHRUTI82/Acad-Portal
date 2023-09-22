@@ -21,3 +21,7 @@ For Students:
 1. Course Registration and Deregistration
 2. View Grades
 3. Compute CGPA
+
+#Language used-
+1. PostgreSQL
+2. Java
